@@ -8,40 +8,7 @@ const createOrder =async(req:Request,res:Response)=>{
   
     try {
         const orderData = req.body;
-    //     const { productId,quantity } = orderData;
 
-    //     // Check if the product exists
-    //     const product = await ProductServices.getProductById(productId);
-
-    //     if (!product) {
-    //         return res.status(404).json({
-    //             success: false,
-    //             message: "Product not found!",
-    //         });
-    //     }
-    //        // Check if the ordered quantity exceeds available quantity
-    // if (product.inventory.quantity < quantity) {
-    //     return res.status(400).json({
-    //       success: false,
-    //       message: "Insufficient quantity available in inventory",
-    //     });
-    //   }
-  
-    //   // Update the inventory quantity and inStock status
-    //   product.inventory.quantity -= quantity;
-    //   product.inventory.inStock = product.inventory.quantity > 0;
-    //   console.log("Product after update:", product);
-  
-    //   await product.save();
-
-    //     // Create the order
-    //     const result = await OrderServices.createOrder(orderData);
-       
-    //     res.json({
-    //         success: true,
-    //         message: "Order is created successfully!",
-    //         data: result,
-    //     });
     const validatedData = orderValidationSchema.parse(orderData);
 
     // Check if the product exists

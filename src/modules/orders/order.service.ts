@@ -8,16 +8,6 @@ const createOrder=async(payload:TOrder)=>{
     return result
 
 }
-
-
-// const getAllOrders=async()=>{
-
-//     const  result=await Order.find()
-//     return result
-
-// }
-
-
 const getAllOrders= async (email?: string) => {
     if (email) {
       return await Order.find({ email: { $regex: email, $options: "i" } });
@@ -31,10 +21,6 @@ const getOrderById=async(id:any)=>{
     return result
 
 }
-
-
-
-
 export const OrderServices={
     createOrder,
     getAllOrders,
