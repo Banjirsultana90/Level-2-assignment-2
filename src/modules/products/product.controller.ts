@@ -83,7 +83,12 @@ const getProductById = async (req: Request, res: Response) => {
     try {
         const {productId}=req.params
       const result = await ProductServices.dleteProductById(productId);
-  
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          message: "Product not found!",
+        });
+      }
       res.status(200).json({
         success: true,
         message: "Product is deleted successfully !",
@@ -106,6 +111,12 @@ const getProductById = async (req: Request, res: Response) => {
       
 
     const result = await ProductServices.updateProductbyId(productId, validatedData);
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found!",
+      });
+    }
       res.status(200).json({
         success: true,
         message: "Product updated successfully!",
