@@ -11,9 +11,8 @@ const createOrder =async(req:Request,res:Response)=>{
 
     const validatedData = orderValidationSchema.parse(orderData);
 
-    // Check if the product exists
+    // Check whether the product exists
     const product = await ProductServices.getProductById(validatedData.productId);
-
     if (!product) {
       return res.status(404).json({
         success: false,
@@ -29,14 +28,11 @@ const createOrder =async(req:Request,res:Response)=>{
       });
     }
 
-    // Update the inventory quantity and inStock status
+    // Update the inventory quantity and inStock status as requirements
     product.inventory.quantity -= validatedData.quantity;
     product.inventory.inStock = product.inventory.quantity > 0;
-
-    // Save the updated product
     await product.save();
 
-    // Create the order
     const result = await OrderServices.createOrder(validatedData);
 
     res.json({
