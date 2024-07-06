@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
-import { ProductRoutes } from "./modules/products/product.route";
-import { OrderRoutes } from "./modules/orders/order.routes";
-import notFound from "./midleware/notfound";
+import { ProductRoutes } from "./app/modules/products/product.route";
+import { OrderRoutes } from "./app/modules/orders/order.routes";
+import notFound from "./app/midleware/notfound";
 const app = express();
 app.use(express.json());
 
