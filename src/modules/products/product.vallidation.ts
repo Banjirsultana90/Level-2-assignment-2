@@ -1,6 +1,5 @@
 import { z } from "zod";
 const productValidationSchema = z.object({
-
     name: z.string(),
     description: z.string(),
     price: z.number(),
@@ -15,7 +14,6 @@ const productValidationSchema = z.object({
       inStock: z.boolean(),
     }),
   })
-
   export default productValidationSchema
 
 
