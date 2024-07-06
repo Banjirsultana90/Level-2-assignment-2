@@ -57,8 +57,6 @@ const createOrder =async(req:Request,res:Response)=>{
     try {
         const { email } = req.query
         const result = await OrderServices.getAllOrders(email as string);
-    //   const result = await OrderServices.getAllOrders();
- 
     if (!result || result.length === 0) {
       return res.status(404).json({
         success: false,
@@ -87,7 +85,6 @@ const createOrder =async(req:Request,res:Response)=>{
         return res.status(404).json({
           success: false,
           message: "Order not found!",
-          // data: null,
         });
       }
   

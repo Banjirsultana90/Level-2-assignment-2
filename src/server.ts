@@ -2,7 +2,6 @@ import config from "./config";
 import mongoose from "mongoose";
 import app from "./app";
 try {
-  // const a = 10;
   async function main() {
     await mongoose.connect(config.db_url as string);
   }

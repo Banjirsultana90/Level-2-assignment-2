@@ -3,10 +3,8 @@ import { Order } from "./order.model"
 
 
 const createOrder=async(payload:TOrder)=>{
-
     const  result=await Order.create(payload)
     return result
-
 }
 const getAllOrders= async (email?: string) => {
     if (email) {
@@ -15,6 +13,7 @@ const getAllOrders= async (email?: string) => {
     return await Order.find();
   }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getOrderById=async(id:any)=>{
 
     const  result=await Order.findById(id)

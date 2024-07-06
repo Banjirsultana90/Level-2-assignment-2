@@ -12,11 +12,6 @@ const createProducts =async(req:Request,res:Response)=>{
 
     const zodparseData=productValidationSchema.parse(productData)
     const result= await ProductServices.createProducts(zodparseData)
- 
-      // const validatedData = productArraySchema.parse(productData);
-
-      // const createdProducts = await Product.insertMany(validatedData);
-   
     res.json({
      success:true,
      message:"Product is created successfully!",
@@ -42,7 +37,6 @@ const createProducts =async(req:Request,res:Response)=>{
         return res.status(404).json({
           success: false,
           message: "Product not found!",
-          // data: null,
         });
       }
   
@@ -69,7 +63,6 @@ const getProductById = async (req: Request, res: Response) => {
       return res.status(404).json({
         success: false,
         message: "Product not found!",
-        // data: null,
       });
     }
 
@@ -113,8 +106,6 @@ const getProductById = async (req: Request, res: Response) => {
       
 
     const result = await ProductServices.updateProductbyId(productId, validatedData);
-      // const result = await ProductServices.updateProductbyId(productId, updatedData);
- 
       res.status(200).json({
         success: true,
         message: "Product updated successfully!",
@@ -129,8 +120,6 @@ const getProductById = async (req: Request, res: Response) => {
     }
   };
   
-
-
 
  export const ProductController={
     createProducts,
