@@ -5,13 +5,12 @@ import notFound from "./app/midleware/notfound";
 const app = express();
 app.use(express.json());
 
-
 app.use('/api/products',ProductRoutes)
 app.use('/api/orders',OrderRoutes)
-app.use(notFound)
+
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
-
+app.use(notFound)
 export default app;
